@@ -1,0 +1,2 @@
+config HAS_TMCLIB
+	bool
