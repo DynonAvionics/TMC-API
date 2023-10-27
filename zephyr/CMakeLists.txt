@@ -1,8 +1,8 @@
-if(CONFIG_HAS_TMCLIB)
+if(CONFIG_HAS_TMC_LIB)
 
 zephyr_library()
 
-if(CONFIG_HAS_TMCRAMP)
+if(CONFIG_HAS_TMC_RAMP)
 
 zephyr_include_directories(
 	tmc/ramp
@@ -13,10 +13,10 @@ zephyr_library_sources(
 	tmc/ramp/LinearRamp1.c
 )
 
-endif() // CONFIG_HAS_TMCRAMP
+endif() # CONFIG_HAS_TMC_RAMP
 
 
-if(CONFIG_HAS_TMCHELPERS)
+if(CONFIG_HAS_TMC_HELPERS)
 
 zephyr_include_directories(
 	tmc/helpers
@@ -26,168 +26,156 @@ zephyr_library_sources(
 	tmc/helpers/Functions.c
 )
 
-endif() // CONFIG_HAS_TMCHELPERS
+endif() # CONFIG_HAS_TMC_HELPERS
 
 
-// Individual TMC chips
-if(CONFIG_TMC4330 OR CONFIG_TMC4331 OR CONFIG_TMC4361)
+# Individual TMC chips
+if(CONFIG_TMC_4330 OR CONFIG_TMC_4331 OR CONFIG_TMC_4361A)
 zephyr_include_directories(tmc/ic/TMC43xx)
 endif()
 
-if(CONFIG_TMC262)
+if(CONFIG_TMC_262)
 zephyr_include_directories(tmc/ic/TMC262)
 endif()
 
-if(CONFIG_TMC389)
+if(CONFIG_TMC_389)
 zephyr_include_directories(tmc/ic/TMC389)
 endif()
 
-if(CONFIG_TMC424)
+if(CONFIG_TMC_424)
 zephyr_include_directories(tmc/ic/TMC424)
 endif()
 
-if(CONFIG_TMC429)
+if(CONFIG_TMC_429)
 zephyr_include_directories(tmc/ic/TMC429)
 endif()
 
-if(CONFIG_TMC457)
+if(CONFIG_TMC_457)
 zephyr_include_directories(tmc/ic/TMC457)
 endif()
 
-if(CONFIG_TMC8460 OR CONFIG_TMC8461 OR CONFIG_TMC8462)
+if(CONFIG_TMC_8461 OR CONFIG_TMC_8462)
 zephyr_include_directories(tmc/ic/TMC486x)
 endif()
 
-if(CONFIG_TMC2041)
-zephyr_include_directories(tmc/ic/TMC2041)
-endif()
-
-if(CONFIG_TMC2130)
+if(CONFIG_TMC_2130)
 zephyr_include_directories(tmc/ic/TMC2130)
 endif()
 
-if(CONFIG_TMC2160)
+if(CONFIG_TMC_2160)
 zephyr_include_directories(tmc/ic/TMC2160)
 endif()
 
-if(CONFIG_TMC2208)
+if(CONFIG_TMC_2208)
 zephyr_include_directories(tmc/ic/TMC2208)
 endif()
 
-if(CONFIG_TMC2209)
+if(CONFIG_TMC_2209)
 zephyr_include_directories(tmc/ic/TMC2209)
 endif()
 
-if(CONFIG_TMC2224)
+if(CONFIG_TMC_2224)
 zephyr_include_directories(tmc/ic/TMC2224)
 endif()
 
-if(CONFIG_TMC2225)
+if(CONFIG_TMC_2225)
 zephyr_include_directories(tmc/ic/TMC2225)
 endif()
 
-if(CONFIG_TMC2226)
+if(CONFIG_TMC_2226)
 zephyr_include_directories(tmc/ic/TMC2226)
 endif()
 
-if(CONFIG_TMC2240)
+if(CONFIG_TMC_2240)
 zephyr_include_directories(tmc/ic/TMC2240)
 endif()
 
-if(CONFIG_TMC2300)
+if(CONFIG_TMC_2300)
 zephyr_include_directories(tmc/ic/TMC2300)
 endif()
 
-if(CONFIG_TMC2590)
+if(CONFIG_TMC_2590)
 zephyr_include_directories(tmc/ic/TMC2590)
 endif()
 
-if(CONFIG_TMC2660)
+if(CONFIG_TMC_2660)
 zephyr_include_directories(tmc/ic/TMC2660)
 endif()
 
-if(CONFIG_TMC4210)
+if(CONFIG_TMC_4210)
 zephyr_include_directories(tmc/ic/TMC4210)
 endif()
 
-if(CONFIG_TMC4330)
+if(CONFIG_TMC_4330)
 zephyr_include_directories(tmc/ic/TMC4330)
 endif()
 
-if(CONFIG_TMC4331)
+if(CONFIG_TMC_4331)
 zephyr_include_directories(tmc/ic/TMC4331)
 endif()
 
-if(CONFIG_TMC4361)
-zephyr_include_directories(tmc/ic/TMC4361)
-endif()
-
-if(CONFIG_TMC4361A)
+if(CONFIG_TMC_4361A)
 zephyr_include_directories(tmc/ic/TMC4361A)
 endif()
 
-if(CONFIG_TMC4670)
-zephyr_include_directories(tmc/ic/TMC4670)
-endif()
-
-if(CONFIG_TMC4671)
+if(CONFIG_TMC_4671)
 zephyr_include_directories(tmc/ic/TMC4671)
 endif()
 
-if(CONFIG_TMC5031)
+if(CONFIG_TMC_5031)
 zephyr_include_directories(tmc/ic/TMC5031)
 endif()
 
-if(CONFIG_TMC5041)
+if(CONFIG_TMC_5041)
 zephyr_include_directories(tmc/ic/TMC5041)
 endif()
 
-if(CONFIG_TMC5062)
+if(CONFIG_TMC_5062)
 zephyr_include_directories(tmc/ic/TMC5062)
 endif()
 
-if(CONFIG_TMC5072)
+if(CONFIG_TMC_5072)
 zephyr_include_directories(tmc/ic/TMC5072)
 endif()
 
-if(CONFIG_TMC5130)
+if(CONFIG_TMC_5130)
 zephyr_include_directories(tmc/ic/TMC5130)
 endif()
 
-if(CONFIG_TMC5160)
+if(CONFIG_TMC_5160)
 zephyr_include_directories(tmc/ic/TMC5160)
 endif()
 
-if(CONFIG_TMC5240)
+if(CONFIG_TMC_5240)
 zephyr_include_directories(tmc/ic/TMC5240)
 endif()
 
-if(CONFIG_TMC5271)
+if(CONFIG_TMC_5271)
 zephyr_include_directories(tmc/ic/TMC5271)
 endif()
 
-if(CONFIG_TMC5272)
+if(CONFIG_TMC_5272)
 zephyr_include_directories(tmc/ic/TMC5272)
 endif()
 
-if(CONFIG_TMC6100)
+if(CONFIG_TMC_6100)
 zephyr_include_directories(tmc/ic/TMC6100)
 endif()
 
-if(CONFIG_TMC6200)
+if(CONFIG_TMC_6200)
 zephyr_include_directories(tmc/ic/TMC6200)
 endif()
 
-if(CONFIG_TMC7300)
+if(CONFIG_TMC_7300)
 zephyr_include_directories(tmc/ic/TMC7300)
 endif()
 
-if(CONFIG_TMC8461)
+if(CONFIG_TMC_8461)
 zephyr_include_directories(tmc/ic/TMC8461)
 endif()
 
-if(CONFIG_TMC8462)
+if(CONFIG_TMC_8462)
 zephyr_include_directories(tmc/ic/TMC8462)
 endif()
 
-endif() // CONFIG_HAS_TMCLIB
+endif() # CONFIG_HAS_TMC_LIB

@@ -1,2 +1,129 @@
-config HAS_TMCLIB
+config ZEPHYR_TMC_API_MODULE
 	bool
+
+config TMC_API
+	bool "TMC API"
+	help
+	  This option enables the Trinamic API module.
+
+menu "Trinamic API options"
+
+if TMC_API
+
+config TMC_RAMP
+	bool "Support for TMC ramp"
+
+config TMC_HELPERS
+	bool "Support for TMC helpers"
+
+config TMC_MAX22216
+	bool "Support for Trinamic MAX22216"
+
+config TMC_262
+	bool "Support for TMC262"
+
+config TMC_389
+	bool "Support for TMC389"
+
+config TMC_424
+	bool "Support for TMC424"
+
+config TMC_429
+	bool "Support for TMC429"
+
+config TMC_457
+	bool "Support for TMC457"
+
+config TMC_2130
+	bool "Support for TMC2130"
+
+config TMC_2160
+	bool "Support for TMC2160"
+
+config TMC_2208
+	bool "Support for TMC2208"
+
+config TMC_2209
+	bool "Support for TMC2209"
+
+config TMC_2224
+	bool "Support for TMC2224"
+
+config TMC_2225
+	bool "Support for TMC2225"
+
+config TMC_2226
+	bool "Support for TMC2226"
+
+config TMC_2240
+	bool "Support for TMC2240"
+
+config TMC_2300
+	bool "Support for TMC2300"
+
+config TMC_2590
+	bool "Support for TMC2590"
+
+config TMC_2660
+	bool "Support for TMC2660"
+
+config TMC_4210
+	bool "Support for TMC4210"
+
+config TMC_4330
+	bool "Support for TMC4330"
+
+config TMC_4331
+	bool "Support for TMC4331"
+
+config TMC_4361A
+	bool "Support for TMC4361A"
+
+config TMC_4671
+	bool "Support for TMC4671"
+
+config TMC_5031
+	bool "Support for TMC5031"
+
+config TMC_5041
+	bool "Support for TMC5041"
+
+config TMC_5062
+	bool "Support for TMC5062"
+
+config TMC_5072
+	bool "Support for TMC5072"
+
+config TMC_5130
+	bool "Support for TMC5130"
+
+config TMC_5160
+	bool "Support for TMC5160"
+
+config TMC_5240
+	bool "Support for TMC5240"
+
+config TMC_5271
+	bool "Support for TMC5271"
+
+config TMC_5272
+	bool "Support for TMC5272"
+
+config TMC_6100
+	bool "Support for TMC6100"
+
+config TMC_6200
+	bool "Support for TMC6200"
+
+config TMC_7300
+	bool "Support for TMC7300"
+
+config TMC_8461
+	bool "Support for TMC8461"
+
+config TMC_8462
+	bool "Support for TMC8462"
+
+endif # TMC_API
+
+endmenu
