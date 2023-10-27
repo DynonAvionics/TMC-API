@@ -1,5 +1,1 @@
 name: tmc-api
-
-build:
-  cmake: .
-  kconfig: Kconfig
