@@ -1,8 +1,13 @@
-if(CONFIG_HAS_TMC_LIB)
+if(CONFIG_TMC_API)
+
+#kfbtodo is this the right way to have tmc-api/ ?
+zephyr_include_directories(
+	../
+)
 
 zephyr_library()
 
-if(CONFIG_HAS_TMC_RAMP)
+if(CONFIG_TMC_RAMP)
 
 zephyr_include_directories(
 	tmc/ramp
@@ -13,20 +18,21 @@ zephyr_library_sources(
 	tmc/ramp/LinearRamp1.c
 )
 
-endif() # CONFIG_HAS_TMC_RAMP
+endif() # CONFIG_TMC_RAMP
 
 
-if(CONFIG_HAS_TMC_HELPERS)
+if(CONFIG_TMC_HELPERS)
 
 zephyr_include_directories(
 	tmc/helpers
 )
+# kfbtodo are ../'s the right solution?
 zephyr_library_sources(
-	tmc/helpers/CRC.c
-	tmc/helpers/Functions.c
+	../tmc/helpers/CRC.c
+	../tmc/helpers/Functions.c
 )
 
-endif() # CONFIG_HAS_TMC_HELPERS
+endif() # CONFIG_TMC_HELPERS
 
 
 # Individual TMC chips
@@ -119,7 +125,7 @@ zephyr_include_directories(tmc/ic/TMC4361A)
 endif()
 
 if(CONFIG_TMC_4671)
-zephyr_include_directories(tmc/ic/TMC4671)
+zephyr_include_directories(../tmc/ic/TMC4671)
 endif()
 
 if(CONFIG_TMC_5031)
@@ -178,4 +184,4 @@ if(CONFIG_TMC_8462)
 zephyr_include_directories(tmc/ic/TMC8462)
 endif()
 
-endif() # CONFIG_HAS_TMC_LIB
+endif() # CONFIG_TMC_API

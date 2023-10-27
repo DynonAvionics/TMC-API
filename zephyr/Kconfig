@@ -81,6 +81,7 @@ config TMC_4361A
 
 config TMC_4671
 	bool "Support for TMC4671"
+	select TMC_HELPERS
 
 config TMC_5031
 	bool "Support for TMC5031"

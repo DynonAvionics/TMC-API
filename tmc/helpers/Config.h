@@ -20,9 +20,10 @@
 typedef void (*tmc_callback_config)(void);
 
 // States of a configuration
+// kfbtodo: CONFIG_RESET is a zephyr config macro. This is causing problemsss :(
 typedef enum {
 	CONFIG_READY,
-	CONFIG_RESET,
+	CONFIG_RESET_TMC,
 	CONFIG_RESTORE
 } ConfigState;
 
