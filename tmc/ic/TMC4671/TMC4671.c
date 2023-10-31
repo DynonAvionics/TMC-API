@@ -6,7 +6,6 @@
 * proprietary & confidential to Analog Devices, Inc. and its licensors.
 *******************************************************************************/
 
-
 #include "TMC4671.h"
 
 #define STATE_NOTHING_TO_DO    0
@@ -15,7 +14,8 @@
 #define STATE_ESTIMATE_OFFSET  3
 
 // => SPI wrapper
-extern uint8_t tmc4671_readwriteByte(uint8_t motor, uint8_t data, uint8_t lastTransfer);
+#define SPI_BUFSIZE 5 // kfbtodo this should be the same define as in your TMC spi file
+extern int32_t tmc4671_readwriteByte(uint8_t txbuf[SPI_BUFSIZE]);
 // <= SPI wrapper
 
 // spi access
@@ -23,32 +23,25 @@ int32_t tmc4671_readInt(uint8_t motor, uint8_t address)
 {
 	// clear write bit
 	address &= 0x7F;
+	uint8_t txbuf[SPI_BUFSIZE] = {address, 0, 0, 0, 0};
 
-	// write address
-	tmc4671_readwriteByte(motor, address, false);
-
-	// read data
-	int32_t value = tmc4671_readwriteByte(motor, 0, false);
-	value <<= 8;
-	value |= tmc4671_readwriteByte(motor, 0, false);
-	value <<= 8;
-	value |= tmc4671_readwriteByte(motor, 0, false);
-	value <<= 8;
-	value |= tmc4671_readwriteByte(motor, 0, true);
-
-	return value;
+	return tmc4671_readwriteByte(txbuf);
 }
 
 void tmc4671_writeInt(uint8_t motor, uint8_t address, int32_t value)
 {
-	// write address
-	tmc4671_readwriteByte(motor, address|0x80, false);
+	// set write bit
+	address |= 0x80;
 
-	// write value
-	tmc4671_readwriteByte(motor, 0xFF & (value>>24), false);
-	tmc4671_readwriteByte(motor, 0xFF & (value>>16), false);
-	tmc4671_readwriteByte(motor, 0xFF & (value>>8), false);
-	tmc4671_readwriteByte(motor, 0xFF & (value>>0), true);
+	uint8_t txbuf[SPI_BUFSIZE] = {
+		address,
+		0xFF & (value >> 24),
+		0xFF & (value >> 16),
+		0xFF & (value >>  8),
+		0xFF & (value >>  0),
+		};
+
+	tmc4671_readwriteByte(txbuf);
 }
 
 uint16_t tmc4671_readRegister16BitValue(uint8_t motor, uint8_t address, uint8_t channel)

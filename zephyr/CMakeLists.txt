@@ -126,6 +126,7 @@ endif()
 
 if(CONFIG_TMC_4671)
 zephyr_include_directories(../tmc/ic/TMC4671)
+zephyr_library_sources(../tmc/ic/TMC4671/TMC4671.c)
 endif()
 
 if(CONFIG_TMC_5031)
