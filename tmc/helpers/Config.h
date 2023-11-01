@@ -10,6 +10,10 @@
 #ifndef TMC_HELPERS_CONFIG_H_
 #define TMC_HELPERS_CONFIG_H_
 
+// CONFIG_RESET is also a zephyr config macro that can't be changed.
+// Undefine it so it doesn't conflict with the ConfigState enum below
+#undef CONFIG_RESET
+
 #include "Constants.h"
 #include "Types.h"
 
@@ -23,7 +27,7 @@ typedef void (*tmc_callback_config)(void);
 // kfbtodo: CONFIG_RESET is a zephyr config macro. This is causing problemsss :(
 typedef enum {
 	CONFIG_READY,
-	CONFIG_RESET_TMC,
+	CONFIG_RESET,
 	CONFIG_RESTORE
 } ConfigState;
 

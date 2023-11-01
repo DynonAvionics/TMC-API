@@ -1,6 +1,8 @@
+#kfbtodo: move this and the Kconfig to new gen4/zephyr/modules/tmc-api/
+# May need to play around with https://docs.zephyrproject.org/latest/develop/modules.html
+# https://docs.zephyrproject.org/latest/develop/modules.html#integrate-modules-in-zephyr-build-system
 if(CONFIG_TMC_API)
 
-#kfbtodo is this the right way to have tmc-api/ ?
 zephyr_include_directories(
 	../
 )
@@ -26,7 +28,7 @@ if(CONFIG_TMC_HELPERS)
 zephyr_include_directories(
 	tmc/helpers
 )
-# kfbtodo are ../'s the right solution?
+
 zephyr_library_sources(
 	../tmc/helpers/CRC.c
 	../tmc/helpers/Functions.c

@@ -14,8 +14,9 @@
 #define STATE_ESTIMATE_OFFSET  3
 
 // => SPI wrapper
-#define SPI_BUFSIZE 5 // kfbtodo this should be the same define as in your TMC spi file
-extern int32_t tmc4671_readwriteByte(uint8_t txbuf[SPI_BUFSIZE]);
+// kfbtodo does zephyr really need to read and write all bytes at once, or are you making that up?
+// ie is it really neccesary to redefine the read write byte or is it just slightly convenient?
+extern int32_t tmc4671_readwriteByte(uint8_t txbuf[TMC_4671_SPI_BUF_SIZE]);
 // <= SPI wrapper
 
 // spi access
@@ -23,7 +24,7 @@ int32_t tmc4671_readInt(uint8_t motor, uint8_t address)
 {
 	// clear write bit
 	address &= 0x7F;
-	uint8_t txbuf[SPI_BUFSIZE] = {address, 0, 0, 0, 0};
+	uint8_t txbuf[TMC_4671_SPI_BUF_SIZE] = {address, 0, 0, 0, 0};
 
 	return tmc4671_readwriteByte(txbuf);
 }
@@ -33,7 +34,7 @@ void tmc4671_writeInt(uint8_t motor, uint8_t address, int32_t value)
 	// set write bit
 	address |= 0x80;
 
-	uint8_t txbuf[SPI_BUFSIZE] = {
+	uint8_t txbuf[TMC_4671_SPI_BUF_SIZE] = {
 		address,
 		0xFF & (value >> 24),
 		0xFF & (value >> 16),
