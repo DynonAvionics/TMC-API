@@ -14,8 +14,6 @@
 #define STATE_ESTIMATE_OFFSET  3
 
 // => SPI wrapper
-// kfbtodo does zephyr really need to read and write all bytes at once, or are you making that up?
-// ie is it really neccesary to redefine the read write byte or is it just slightly convenient?
 extern int32_t tmc4671_readwriteByte(uint8_t txbuf[TMC_4671_SPI_BUF_SIZE]);
 // <= SPI wrapper
 
