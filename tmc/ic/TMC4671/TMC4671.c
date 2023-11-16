@@ -13,6 +13,10 @@
 #define STATE_WAIT_INIT_TIME   2
 #define STATE_ESTIMATE_OFFSET  3
 
+// tmc4671_readwriteByte(), tmc4671_readInt(), and tmc4671_readInt() have been redone for smoother
+// use of tmc4671_readwriteByte() in zephyr, which is not set up well to send/rx one byte at a time
+
+
 // => SPI wrapper
 extern int32_t tmc4671_readwriteByte(uint8_t txbuf[TMC_4671_SPI_BUF_SIZE]);
 // <= SPI wrapper

@@ -17,7 +17,7 @@
 #define TMC4671_STATUS_FLAGS_REF_MASK   0x00700000
 #define TMC4671_STATUS_FLAGS_REF_SHIFT  20
 
-// Buffer size for SPI buffer of uint8_t 
+// Buffer size for SPI buffer of uint8_t
 #define TMC_4671_SPI_BUF_SIZE 5
 
 #endif /* TMC_IC_TMC4671_TMC4671_CONSTANTS_H_ */

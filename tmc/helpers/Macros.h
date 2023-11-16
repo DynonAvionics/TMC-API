@@ -11,7 +11,7 @@
 #define TMC_MACROS_H_
 
 // Zephyr defines a different FIELD_GET macro with a different interface
-// Undefine FIELD_GET so trinamic code has to use its own, and to remove build warnings
+// Undefine FIELD_GET so trinamic code uses its own, and to remove build warnings
 #undef FIELD_GET
 
 /* Cast a n bit signed int to a 32 bit signed int
