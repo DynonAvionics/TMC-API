@@ -1,1 +1,4 @@
 name: tmc-api
+build:
+  cmake-ext: True
+  kconfig-ext: True
